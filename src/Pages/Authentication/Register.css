@@ -1,0 +1,22 @@
+.form-group {
+    margin: 10px 0;
+}
+
+.input-field {
+    padding: 5px;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid lightgray;
+}
+
+.input-field:focus {
+    outline: none;
+    border: 2px solid #0D6EFD;
+    background-color: rgba(13, 110, 253, .2);
+}
+
+.form-group input[type=submit] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+}
