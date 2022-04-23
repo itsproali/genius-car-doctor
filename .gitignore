@@ -5,11 +5,17 @@
 /.pnp
 .pnp.js
 
+
 # testing
 /coverage
 
 # production
 /build
+.firebase
+.firebaserc
+firebase.json
+genius-server/node_modules
+genius-server/.env
 
 # misc
 .DS_Store
