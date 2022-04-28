@@ -1,29 +1,27 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-client-side/node_modules
-client-side/.pnp
-client-side/.pnp.js
+node_modules
+.pnp
+.pnp.js
 
 
 # testing
-client-side/coverage
+coverage
 
 # production
-client-side/build
-client-side/.firebase
-client-side/.firebaserc
-client-side/firebase.json
-genius-server/node_modules
-genius-server/.env
+build
+.firebase
+.firebaserc
+firebase.json
 
 # misc
-client-side/.DS_Store
-client-side/.env.local
-client-side/.env.development.local
-client-side/.env.test.local
-client-side/.env.production.local
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-client-side/npm-debug.log*
-client-side/yarn-debug.log*
-client-side/yarn-error.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
