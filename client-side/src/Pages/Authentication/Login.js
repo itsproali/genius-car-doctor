@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
   useSendPasswordResetEmail,
@@ -33,6 +33,12 @@ const Login = () => {
   const [sendPasswordResetEmail, sending, resetError] =
     useSendPasswordResetEmail(auth);
 
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [from, navigate, user]);
+
   if (loading || sending) {
     return <Loading />;
   }
@@ -54,9 +60,6 @@ const Login = () => {
     }
   };
 
-  if (user) {
-    navigate(from, { replace: true });
-  }
   return (
     <div className="container col-10 col-sm-7 col-md-4  mx-auto border border-3 border-primary p-4 mt-5 rounded shadow position-relative">
       <ToastContainer

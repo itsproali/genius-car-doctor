@@ -12,6 +12,7 @@ import NotFound from "./Pages/NotFound/NotFound";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
 import Loading from "./Pages/Shared/Loading/Loading";
+import UpdateService from "./Pages/Home/Service/UpdateService";
 
 function App() {
   return (
@@ -23,10 +24,18 @@ function App() {
         <Route path="/services" element={<Services />}></Route>
         <Route path="/service/:serviceId" element={<ServiceDetails />}></Route>
         <Route
-          path="/checkout"
+          path="/checkout/:serviceId"
           element={
             <Required>
               <Checkout></Checkout>
+            </Required>
+          }
+        ></Route>
+        <Route
+          path="/update/:id"
+          element={
+            <Required>
+              <UpdateService />
             </Required>
           }
         ></Route>

@@ -22,6 +22,8 @@ async function run() {
       .db("GeniusCarDoctor")
       .collection("services");
 
+    const orderCollection = client.db("GeniusCarDoctor").collection("orders");
+
     //   Load All Services
     app.get("/services", async (req, res) => {
       const query = {};
@@ -35,6 +37,40 @@ async function run() {
       const query = { _id: ObjectId(req.params.id) };
       const service = await serviceCollection.findOne(query);
       res.send(service);
+    });
+
+    // Update a service
+    app.put("/service/:id", async (req, res) => {
+      const query = { _id: ObjectId(req.params.id) };
+      const service = req.body;
+      const options = { upsert: true };
+      const updateDoc = {
+        $set: {
+          name: service.name,
+          price: service.price,
+          description: service.description,
+        },
+      };
+      const updatedService = await serviceCollection.updateOne(
+        query,
+        updateDoc,
+        options
+      );
+      res.send(updatedService);
+    });
+
+    // Delete a service
+    app.delete("/service/:id", async (req, res) => {
+      const query = { _id: ObjectId(req.params.id) };
+      const result = await serviceCollection.deleteOne(query);
+      res.send(result);
+    });
+
+    // Get Order Info
+    app.post("/order", async (req, res) => {
+      const query = req.body;
+      const order = await orderCollection.insertOne(query);
+      res.send(order);
     });
   } finally {
   }
