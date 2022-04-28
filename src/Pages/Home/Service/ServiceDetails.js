@@ -19,9 +19,12 @@ const ServiceDetails = () => {
       "Are you sure, You want to delete this service?"
     );
     if (confirm) {
-      fetch(`http://localhost:5000/service/${serviceId}`, {
-        method: "delete",
-      })
+      fetch(
+        `https://enigmatic-sands-43485.herokuapp.com/service/${serviceId}`,
+        {
+          method: "delete",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           navigate("/");

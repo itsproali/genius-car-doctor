@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import useServiceDetails from "../../hooks/useServiceDetails";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import axios from "axios"
+import axios from "axios";
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const Checkout = () => {
     const info = { name, email, address, phone, serviceName };
 
     axios
-      .post("http://localhost:5000/order", info)
+      .post("https://enigmatic-sands-43485.herokuapp.com/order", info)
       .then((res) => {
         navigate("/");
         console.log(res);

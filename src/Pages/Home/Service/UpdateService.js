@@ -7,7 +7,7 @@ const UpdateService = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/service/${id}`)
+    fetch(`https://enigmatic-sands-43485.herokuapp.com/service/${id}`)
       .then((res) => res.json())
       .then((data) => setService(data));
   }, [id]);
@@ -19,7 +19,7 @@ const UpdateService = () => {
     const description = e.target.description.value;
     const updatedService = { name, price, description };
 
-    fetch(`http://localhost:5000/service/${id}`, {
+    fetch(`https://enigmatic-sands-43485.herokuapp.com/service/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
